@@ -1,0 +1,6 @@
+CREATE TABLE sitedata.online_wait_data
+(
+	dataid int  PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+	timestamp timestamp,
+	waittime int NOT NULL
+)

@@ -1,0 +1,18 @@
+CREATE OR REPLACE VIEW "Warehouse".monthly_disney_stock
+AS
+	SELECT 
+		EXTRACT(YEAR FROM date) 				AS year,
+		EXTRACT(MONTH FROM date) 				AS month, 
+		AVG(volume)								AS volume,
+		AVG(open)								AS open, 
+		AVG(closed)								AS closed, 
+		AVG(high)								AS high, 
+		AVG(low)								AS low,
+		AVG((open+closed+high+low)/4.0) 		AS average
+	FROM 
+		"Warehouse".stock_price
+	WHERE 
+		stock_name = 'Disney'
+	GROUP BY 
+		EXTRACT(YEAR FROM date),
+		EXTRACT(MONTH FROM date)

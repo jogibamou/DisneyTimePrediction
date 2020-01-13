@@ -1,0 +1,11 @@
+CREATE TABLE "Warehouse".stock_price
+(
+	id int NOT NULL GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    stock_name character varying(16) COLLATE pg_catalog."default",
+    date date NOT NULL,
+    volume numeric,
+    open numeric,
+    closed numeric
+    high numeric,
+    low numeric
+)

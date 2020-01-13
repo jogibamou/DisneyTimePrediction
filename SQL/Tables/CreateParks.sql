@@ -1,0 +1,6 @@
+CREATE TABLE "Warehouse"."Parks"
+(
+	ParkID INT GENERATED ALWAYS AS IDENTITY NOT NULL PRIMARY KEY,
+	Name VARCHAR(64) NOT NULL,
+	LocationID INT NOT NULL REFERENCES "Warehouse"."Locations"(LocationID)
+)

@@ -1,0 +1,1 @@
+Overall intent of this new version of the project is to have data parsing/insert code organized into modules, with Start.py providing a simple hook into the code. 

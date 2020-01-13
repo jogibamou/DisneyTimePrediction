@@ -1,0 +1,18 @@
+CREATE OR REPLACE VIEW public.filtered_wait_times_thunder AS
+ SELECT date_part('month'::text, "AWT"."timestamp") AS month,
+    date_part('hour'::text, "AWT"."timestamp") AS hour,
+    "AWT".waittime,
+	fwd.precipitation as "precipitation",
+    fwd.temp_avg as "avg_temp",
+    fwd.temp_max as "max_temp",
+    fwd.temp_min as "min_temp"
+   FROM "Warehouse"."AttractionWaitTimes" "AWT"
+   INNER JOIN flattened_weather_data AS fwd
+	ON
+    EXTRACT(YEAR FROM "AWT"."timestamp") = EXTRACT(YEAR FROM fwd.date) AND EXTRACT(MONTH FROM "AWT"."timestamp") = EXTRACT(MONTH FROM fwd.date) AND EXTRACT(DAY FROM fwd.date) = EXTRACT(DAY FROM "AWT"."timestamp")
+     JOIN filtered_attractions "GWT" ON "AWT".attractionid = "GWT".attractionid
+  WHERE "AWT".waittime > '-1'::integer AND (date_part('hour'::text, "AWT"."timestamp") < 5::double precision OR date_part('hour'::text, "AWT"."timestamp") > 11::double precision) AND "GWT".name::text = 'Big Thunder Mountain Railroad'::text
+  ORDER BY (random());
+
+ALTER TABLE public.filtered_wait_times_thunder
+    OWNER TO postgres;

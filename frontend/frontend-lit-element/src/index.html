@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Predicting Attraction Wait Times</title>
+
+    <link rel="icon" type="image/png" href="./img/icons/favicon-32x32.png" />
+    <link rel="stylesheet"
+          href="src/styles.css" 
+          media="screen"/>
+    <link href="https://fonts.googleapis.com/css?family=Sacramento&display=swap" rel="stylesheet">
+
+    <dom-module id="my-date-picker-theme" theme-for="vaadin-text-field">
+      <template>
+        <style>
+          :host([theme~="date-picker-theme"]) [part="input-field"] {
+            background-color: #ffffff;
+            color: black;
+            border: 1px solid grey;
+            border-radius: 9px;
+            box-shadow: 2.5px 2.5px 2.5px grey;
+            height: 3em;
+            width: 18em;
+          }
+          :host([theme~="date-picker-theme"]) [part="label"] {
+            color: black;
+          }
+        </style>
+      </template>
+    </dom-module>
+
+    <dom-module id="my-time-picker-theme" theme-for="vaadin-time-picker-text-field">
+      <template>
+        <style>
+          :host([theme~="time-picker-theme"]) [part="input-field"] {
+            background-color: #ffffff;
+            color: black;
+            border: 1px solid grey;
+            border-radius: 9px;
+            box-shadow: 2.5px 2.5px 2.5px grey;
+            height: 3em;
+            width: 18em;
+          }
+          :host([theme~="time-picker-theme"]) [part="label"] {
+            color: black;
+          }
+        </style>
+      </template>
+    </dom-module>
+
+    <dom-module id="my-park-picker-theme" theme-for="vaadin-select-text-field">
+        <template>
+          <style>
+            :host([theme~="park-picker-theme"]) [part="input-field"] {
+              background-color: #ffffff;
+              color: black;
+              border: 1px solid grey;
+              border-radius: 9px;
+              box-shadow: 2.5px 2.5px 2.5px grey;
+              height: 3em;
+              width: 18em;
+            }
+            :host([theme~="park-picker-theme"]) [part="label"] {
+              color: black;
+            }
+          </style>
+        </template>
+      </dom-module>
+
+      <dom-module id="my-ride-picker-theme" theme-for="vaadin-text-field">
+        <template>
+          <style>
+            :host([theme~="ride-picker-theme"]) [part="input-field"] {
+              background-color: #ffffff;
+              color: black;
+              border: 1px solid grey;
+              border-radius: 9px;
+              box-shadow: 2.5px 2.5px 2.5px grey;
+              height: 3em;
+              width: 18em;
+            }
+            :host([theme~="ride-picker-theme"]) [part="label"] {
+              color: black;
+            }
+          </style>
+        </template>
+      </dom-module>
+
+      <dom-module id="my-disabled-ride-picker-theme" theme-for="vaadin-text-field">
+        <template>
+          <style>
+            :host([theme~="disabled-ride-picker-theme"]) [part="input-field"] {
+              background-color: rgba(222, 222, 222, .5);
+              color: black;
+              border: 1px solid grey;
+              border-radius: 9px;
+              box-shadow: 2.5px 2.5px 2.5px grey;
+              height: 3em;
+              width: 18em;
+            }
+            :host([theme~="disabled-ride-picker-theme"]) [part="label"] {
+              color: black;
+            }
+          </style>
+        </template>
+      </dom-module>
+
+      <dom-module id="my-disabled-button-theme" theme-for="vaadin-button">
+          <template>
+            <style>
+              :host([theme~="disabled-button-theme"]) [part="label"] {
+                color: grey;
+              }
+            </style>
+          </template>
+        </dom-module>
+      
+  
+    <script>
+      if (!window.customElements) {
+        document.write('<!--');
+      }
+    </script>
+
+    <script src="./vendor/custom-elements-es5-adapter.js"></script>
+    <!-- ! DO NOT REMOVE THIS COMMENT, WE NEED ITS CLOSING MARKER -->
+  </head>
+
+  <body>
+      <h1>Predicting Attraction Wait Times</h1>
+    <main-view></main-view>
+    <script src="./vendor/webcomponents-loader.js"></script>
+  </body>
+</html>
